@@ -1,0 +1,59 @@
+[
+  {
+    "companyName": "Acme AI",
+    "arr": 25000000,
+    "headcount": 250,
+    "techStack": [
+      "HubSpot",
+      "Slack"
+    ],
+    "location": "United States",
+    "jobTitle": "VP Sales",
+    "fitScore": 100
+  },
+  {
+    "companyName": "CloudFlow",
+    "arr": 10000000,
+    "headcount": 150,
+    "techStack": [
+      "Salesforce"
+    ],
+    "location": "United Kingdom",
+    "jobTitle": "Marketing Manager",
+    "fitScore": 80
+  },
+  {
+    "companyName": "StartupX",
+    "arr": 3000000,
+    "headcount": 100,
+    "techStack": [
+      "Notion"
+    ],
+    "location": "India",
+    "jobTitle": "CEO",
+    "fitScore": 30
+  },
+  {
+    "companyName": "TinyTech",
+    "arr": 500000,
+    "headcount": 20,
+    "techStack": [
+      "Slack"
+    ],
+    "location": "India",
+    "jobTitle": "Founder",
+    "fitScore": 0
+  },
+  {
+    "companyName": "EnterpriseFlow",
+    "arr": 50000000,
+    "headcount": 1000,
+    "techStack": [
+      "Salesforce",
+      "AWS"
+    ],
+    "location": "United States",
+    "jobTitle": "CTO",
+    "fitScore": 70
+  }
+]

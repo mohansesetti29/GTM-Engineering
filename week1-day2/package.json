@@ -1,0 +1,18 @@
+{
+  "name": "ai-gtm-day-2",
+  "version": "1.0.0",
+  "description": "Day 2 AI GTM Engineer - ICP scoring system",
+  "main": "dist/src/evaluateLeads.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --runInBand",
+    "evaluate": "npm run build && node dist/src/evaluateLeads.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.9.0"
+  }
+}
