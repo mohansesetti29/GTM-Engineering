@@ -1,0 +1,21 @@
+Full Name,Job Title,Email,Email Verification Status,LinkedIn URL,Company Name,Domain,Company Size,Industry
+John Smith,VP Sales,john@acme.ai,valid,https://linkedin.com/in/john-smith,Acme AI,acme.ai,250,B2B SaaS
+Sarah Johnson,Head of RevOps,sarah@cloudflow.com,valid,https://linkedin.com/in/sarah-johnson,CloudFlow,cloudflow.com,180,B2B SaaS
+Michael Brown,CTO,michael@datapulse.io,valid,https://linkedin.com/in/michael-brown,DataPulse LLC,datapulse.io,320,Software
+Emily Davis,VP Sales,emily@growthstack.com,valid,https://linkedin.com/in/emily-davis,GrowthStack Corp.,growthstack.com,120,B2B SaaS
+David Wilson,CEO,david@marketflow.io,valid,https://linkedin.com/in/david-wilson,MarketFlow,marketflow.io,90,SaaS
+Jessica Taylor,VP Sales,jessica@revboost.ai,valid,https://linkedin.com/in/jessica-taylor,RevBoost,revboost.ai,210,B2B SaaS
+Daniel Anderson,Head of RevOps,daniel@pipelinepro.com,valid,https://linkedin.com/in/daniel-anderson,PipelinePro,pipelinepro.com,160,SaaS
+Laura Thomas,CTO,laura@techflow.io,valid,https://linkedin.com/in/laura-thomas,TechFlow,techflow.io,400,Software
+Robert Jackson,VP Sales,robert@salescore.ai,valid,https://linkedin.com/in/robert-jackson,SalesCore,salescore.ai,275,B2B SaaS
+Sophia White,Revenue Operations Manager,sophia@scaleops.com,valid,https://linkedin.com/in/sophia-white,ScaleOps,scaleops.com,190,SaaS
+James Harris,VP Sales,james@leadcraft.io,valid,https://linkedin.com/in/james-harris,LeadCraft,leadcraft.io,140,B2B SaaS
+Olivia Martin,CTO,olivia@automatehq.com,valid,https://linkedin.com/in/olivia-martin,AutomateHQ,automatehq.com,350,SaaS
+William Thompson,Head of Sales,william@dealflow.ai,valid,https://linkedin.com/in/william-thompson,DealFlow,dealflow.ai,230,B2B SaaS
+Ava Garcia,VP Revenue,ava@revenuehub.io,valid,https://linkedin.com/in/ava-garcia,RevenueHub,revenuehub.io,300,SaaS
+Noah Martinez,CTO,noah@cloudscale.com,valid,https://linkedin.com/in/noah-martinez,CloudScale,cloudscale.com,450,Software
+Mia Robinson,VP Sales,mia@growthlab.ai,valid,https://linkedin.com/in/mia-robinson,GrowthLab,growthlab.ai,110,B2B SaaS
+Ethan Clark,Head of RevOps,ethan@opsgenius.com,valid,https://linkedin.com/in/ethan-clark,OpsGenius,opsgenius.com,170,SaaS
+Isabella Lewis,VP Sales,isabella@salespilot.io,valid,https://linkedin.com/in/isabella-lewis,SalesPilot,salespilot.io,260,B2B SaaS
+Lucas Lee,CTO,lucas@productflow.ai,valid,https://linkedin.com/in/lucas-lee,ProductFlow,productflow.ai,200,Software
+Amelia Walker,VP Sales,amelia@saasforge.com,valid,https://linkedin.com/in/amelia-walker,SaaSForge,saasforge.com,380,B2B SaaS
