@@ -1,0 +1,51 @@
+DAY 5 — EMAIL AUTHENTICATION DNS TEMPLATE
+==========================================
+
+IMPORTANT:
+These are example/template records for learning.
+Do NOT publish these records on a real domain without
+checking your actual email provider's documentation.
+
+SPF
+---
+Type: TXT
+Host: @
+
+Example:
+v=spf1 include:spf.protection.outlook.com ~all
+
+
+DKIM
+----
+Type: TXT
+Host:
+<selector>._domainkey
+
+Value:
+<provider-generated-DKIM-public-key>
+
+
+DMARC
+-----
+Type: TXT
+Host:
+_dmarc
+
+Example:
+v=DMARC1; p=quarantine; pct=100;
+
+
+PURPOSE
+-------
+
+SPF:
+Specifies which sending infrastructure is authorized
+to send mail for the domain.
+
+DKIM:
+Provides cryptographic authentication for outgoing
+messages.
+
+DMARC:
+Defines how receiving systems should handle messages
+that fail domain authentication/alignment checks.

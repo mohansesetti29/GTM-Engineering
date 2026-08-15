@@ -1,0 +1,14 @@
+{
+  "name": "week1-day5",
+  "version": "1.0.0",
+  "description": "AI GTM cold email generator",
+  "main": "dist/src/main.js",
+  "scripts": {
+    "build": "tsc",
+    "generate": "npm run build && node dist/src/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.0"
+  }
+}
