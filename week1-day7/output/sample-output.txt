@@ -1,0 +1,44 @@
+
+C:\Users\Mohan\Desktop\GTM Engineering\week1-day7>npm start
+
+> week1-day7@1.0.0 start
+> npm run build && node dist/lead-manager.js
+
+
+> week1-day7@1.0.0 build
+> tsc
+
+========================================
+AI GTM — LEAD MANAGEMENT SYSTEM
+========================================
+
+Loaded 5 raw leads.
+
+Processing: john@acme.ai
+✓ Enriched: Acme AI
+✓ ICP Score: 100
+✓ Status: QUALIFIED
+
+Processing: sarah@cloudflow.io
+✓ Enriched: CloudFlow
+✓ ICP Score: 80
+✓ Status: QUALIFIED
+
+Processing: mike@startupx.com
+✓ Enriched: StartupX
+✓ ICP Score: 30
+✓ Status: UNQUALIFIED
+
+Processing: invalid-email
+❌ Invalid email format
+
+Processing: emma@enterpriseflow.com
+✓ Enriched: EnterpriseFlow
+✓ ICP Score: 70
+✓ Status: QUALIFIED
+
+========================================
+PIPELINE COMPLETE
+========================================
+Successfully processed: 4
+CRM output: C:\Users\Mohan\Desktop\GTM Engineering\week1-day7\output\crm_leads.json

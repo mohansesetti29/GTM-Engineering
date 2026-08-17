@@ -1,0 +1,17 @@
+[
+  {
+    "email": "john@acme.ai"
+  },
+  {
+    "email": "sarah@cloudflow.io"
+  },
+  {
+    "email": "mike@startupx.com"
+  },
+  {
+    "email": "invalid-email"
+  },
+  {
+    "email": "emma@enterpriseflow.com"
+  }
+]

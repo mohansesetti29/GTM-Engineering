@@ -1,0 +1,72 @@
+[
+  {
+    "email": "john@acme.ai",
+    "domain": "acme.ai",
+    "firstName": "John",
+    "lastName": "Smith",
+    "companyName": "Acme AI",
+    "jobTitle": "VP Sales",
+    "arr": 25000000,
+    "headcount": 250,
+    "techStack": [
+      "HubSpot",
+      "Slack"
+    ],
+    "location": "United States",
+    "emailVerified": true,
+    "fitScore": 100,
+    "status": "QUALIFIED"
+  },
+  {
+    "email": "sarah@cloudflow.io",
+    "domain": "cloudflow.io",
+    "firstName": "Sarah",
+    "lastName": "Johnson",
+    "companyName": "CloudFlow",
+    "jobTitle": "Marketing Manager",
+    "arr": 10000000,
+    "headcount": 150,
+    "techStack": [
+      "Salesforce"
+    ],
+    "location": "United Kingdom",
+    "emailVerified": true,
+    "fitScore": 80,
+    "status": "QUALIFIED"
+  },
+  {
+    "email": "mike@startupx.com",
+    "domain": "startupx.com",
+    "firstName": "Mike",
+    "lastName": "Brown",
+    "companyName": "StartupX",
+    "jobTitle": "CEO",
+    "arr": 3000000,
+    "headcount": 100,
+    "techStack": [
+      "Notion"
+    ],
+    "location": "India",
+    "emailVerified": true,
+    "fitScore": 30,
+    "status": "UNQUALIFIED"
+  },
+  {
+    "email": "emma@enterpriseflow.com",
+    "domain": "enterpriseflow.com",
+    "firstName": "Emma",
+    "lastName": "Davis",
+    "companyName": "EnterpriseFlow",
+    "jobTitle": "CTO",
+    "arr": 50000000,
+    "headcount": 1000,
+    "techStack": [
+      "Salesforce",
+      "AWS"
+    ],
+    "location": "United States",
+    "emailVerified": true,
+    "fitScore": 70,
+    "status": "QUALIFIED"
+  }
+]
