@@ -1,0 +1,272 @@
+{
+  "name": "Lead Filter by Company Size",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1a2b3c4d-0001-4a1a-9a11-000000000001",
+      "name": "Webhook - Lead Intake",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "lead-intake"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize incoming payload so downstream nodes have a stable shape\nconst body = $input.first().json.body ?? $input.first().json;\n\nreturn [{\n  json: {\n    leadId: body.leadId ?? body.id ?? null,\n    companyName: body.companyName ?? body.company ?? '',\n    companySize: Number(body.companySize ?? body.employees ?? 0),\n    contactName: body.contactName ?? body.name ?? '',\n    contactEmail: body.contactEmail ?? body.email ?? '',\n    source: body.source ?? 'webhook',\n    receivedAt: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "1a2b3c4d-0002-4a1a-9a11-000000000002",
+      "name": "Normalize Lead Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-company-size-min",
+              "leftValue": "={{ $json.companySize }}",
+              "rightValue": 50,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1a2b3c4d-0003-4a1a-9a11-000000000003",
+      "name": "Filter - Company Size >= 50",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "out-1",
+              "name": "leadId",
+              "type": "string",
+              "value": "={{ $json.leadId }}"
+            },
+            {
+              "id": "out-2",
+              "name": "companyName",
+              "type": "string",
+              "value": "={{ $json.companyName }}"
+            },
+            {
+              "id": "out-3",
+              "name": "companySize",
+              "type": "number",
+              "value": "={{ $json.companySize }}"
+            },
+            {
+              "id": "out-4",
+              "name": "contact",
+              "type": "object",
+              "value": "={{ { \"name\": $json.contactName, \"email\": $json.contactEmail } }}"
+            },
+            {
+              "id": "out-5",
+              "name": "qualified",
+              "type": "boolean",
+              "value": "true"
+            },
+            {
+              "id": "out-6",
+              "name": "tier",
+              "type": "string",
+              "value": "={{ $json.companySize >= 1000 ? 'enterprise' : ($json.companySize >= 200 ? 'mid-market' : 'smb') }}"
+            },
+            {
+              "id": "out-7",
+              "name": "processedAt",
+              "type": "string",
+              "value": "={{ $now.toISO() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a2b3c4d-0004-4a1a-9a11-000000000004",
+      "name": "Format Output - Qualified Lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [900, 220]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "rej-1",
+              "name": "leadId",
+              "type": "string",
+              "value": "={{ $json.leadId }}"
+            },
+            {
+              "id": "rej-2",
+              "name": "companyName",
+              "type": "string",
+              "value": "={{ $json.companyName }}"
+            },
+            {
+              "id": "rej-3",
+              "name": "companySize",
+              "type": "number",
+              "value": "={{ $json.companySize }}"
+            },
+            {
+              "id": "rej-4",
+              "name": "qualified",
+              "type": "boolean",
+              "value": "false"
+            },
+            {
+              "id": "rej-5",
+              "name": "reason",
+              "type": "string",
+              "value": "company_size_below_threshold"
+            },
+            {
+              "id": "rej-6",
+              "name": "processedAt",
+              "type": "string",
+              "value": "={{ $now.toISO() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a2b3c4d-0005-4a1a-9a11-000000000005",
+      "name": "Format Output - Rejected Lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "1a2b3c4d-0006-4a1a-9a11-000000000006",
+      "name": "Respond - Qualified",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1120, 220]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "1a2b3c4d-0007-4a1a-9a11-000000000007",
+      "name": "Respond - Rejected",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1120, 400]
+    }
+  ],
+  "connections": {
+    "Webhook - Lead Intake": {
+      "main": [
+        [
+          {
+            "node": "Normalize Lead Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Lead Payload": {
+      "main": [
+        [
+          {
+            "node": "Filter - Company Size >= 50",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter - Company Size >= 50": {
+      "main": [
+        [
+          {
+            "node": "Format Output - Qualified Lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Format Output - Rejected Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output - Qualified Lead": {
+      "main": [
+        [
+          {
+            "node": "Respond - Qualified",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output - Rejected Lead": {
+      "main": [
+        [
+          {
+            "node": "Respond - Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [
+    {
+      "name": "lead-gen"
+    },
+    {
+      "name": "day8"
+    }
+  ]
+}
